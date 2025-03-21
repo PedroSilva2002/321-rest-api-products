@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model, DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/database');
 
 module.exports = sequelize.define('produits', {
@@ -9,19 +7,43 @@ module.exports = sequelize.define('produits', {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   nom: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notNull: { msg: "Le nom du produit ne doit pas être null" },
+      notEmpty: { msg: "Le nom du produit ne doit pas être vide" }
+    }
   },
   description: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
+    allowNull: true
   },
   prix: {
-    type: DataTypes.DECIMAL
+    type: DataTypes.DECIMAL,
+    allowNull: false,
+    validate: {
+      notNull: { msg: "Le prix du produit ne doit pas être null" },
+      isDecimal: { msg: "Le prix doit être un nombre décimal" },
+      min: {
+        args: [0.01],
+        msg: "Le prix doit être supérieur à 0"
+      }
+    }
   },
   quantite_en_stock: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      notNull: { msg: "La quantité en stock ne doit pas être null" },
+      isInt: { msg: "La quantité doit être un nombre entier" },
+      min: {
+        args: [1],
+        msg: "La quantité en stock doit être supérieure à 0"
+      }
+    }
   },
   createdAt: {
     allowNull: false,
@@ -34,4 +56,4 @@ module.exports = sequelize.define('produits', {
 }, {
   freezeTableName: true,
   modelName: 'produits'
-})
+});
