@@ -22,7 +22,7 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const setupSwagger = (app) => {
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+    app.use("/api-swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     console.log("Swagger est dispo sur le url: http://localhost:3000/api-swagger");
 };
 
