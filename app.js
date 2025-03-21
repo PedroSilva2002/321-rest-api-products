@@ -2,9 +2,11 @@ require("dotenv").config({path: `${process.cwd()}/.env`})
 
 const express = require("express");
 const port = process.env.APP_PORT 
+const setupSwagger = require("./swagger");
 
 const app = express();
 app.use(express.json())
+setupSwagger(app);
 
 
 app.listen(port, () => {
