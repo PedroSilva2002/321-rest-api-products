@@ -5,9 +5,9 @@ const swaggerOptions = {
     definition: {
         openapi: "3.0.0",
         info: {
-            title: "Product API",
+            title: "Produit",
             version: "1.0.0",
-            description: "API for managing products",
+            description: "API gestion des produits",
         },
         servers: [
             {
@@ -23,7 +23,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const setupSwagger = (app) => {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-    console.log("Swagger docs available at http://localhost:3000/api-docs");
+    console.log("Swagger est dispo sur le url: http://localhost:3000/api-swagger");
 };
 
 module.exports = setupSwagger;
