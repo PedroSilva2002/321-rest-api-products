@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, DataTypes
 } = require('sequelize');
 const sequelize = require('../../config/database');
 
@@ -9,27 +9,27 @@ module.exports = sequelize.define('produits', {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: Sequelize.INTEGER
+    type: DataTypes.INTEGER
   },
   nom: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   description: {
-    type: Sequelize.TEXT
+    type: DataTypes.TEXT
   },
   prix: {
-    type: Sequelize.DECIMAL
+    type: DataTypes.DECIMAL
   },
   quantite_en_stock: {
-    type: Sequelize.INTEGER
+    type: DataTypes.INTEGER
   },
   createdAt: {
     allowNull: false,
-    type: Sequelize.DATE
+    type: DataTypes.DATE
   },
   updatedAt: {
     allowNull: false,
-    type: Sequelize.DATE
+    type: DataTypes.DATE
   }
 }, {
   freezeTableName: true,

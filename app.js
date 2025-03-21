@@ -4,10 +4,15 @@ const express = require("express");
 const port = process.env.APP_PORT 
 
 const app = express();
+app.use(express.json())
+
 
 app.listen(port, () => {
     console.log("server is up and running", port)
 })
+
+const produitsRouter = require("./routes/productRoute")
+app.use("/api", produitsRouter)
 
 app.get("/health", (request,response) => {
     response.status(200).json({
@@ -15,3 +20,4 @@ app.get("/health", (request,response) => {
         message:"The api is running"
     })
 })
+
