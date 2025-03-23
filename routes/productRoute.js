@@ -5,8 +5,8 @@ const router = require("express").Router();
  * @swagger
  * /api/produits:
  *   post:
- *     summary: Add a new product
- *     description: Creates a new product in the database.
+ *     summary: Add new produit
+ *     description: Creates new new produit et add à la db.
  *     requestBody:
  *       required: true
  *       content:
@@ -24,7 +24,7 @@ const router = require("express").Router();
  *                 type: integer
  *     responses:
  *       201:
- *         description: Product created successfully.
+ *         description: Produit created successfully.
  */
 router.route('/produits').post(addProduit);
 
@@ -32,18 +32,18 @@ router.route('/produits').post(addProduit);
  * @swagger
  * /api/produits/{id}:
  *   delete:
- *     summary: Delete a product
- *     description: Deletes a product by ID.
+ *     summary: Delete a produit
+ *     description: Deletes a produit by ID.
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: Product ID
+ *         description: Produit ID
  *     responses:
  *       200:
- *         description: Product deleted successfully.
+ *         description: Produit deleted successfully.
  */
 router.delete('/produits/:id', deleteProduit);
 
@@ -51,11 +51,11 @@ router.delete('/produits/:id', deleteProduit);
  * @swagger
  * /api/produits:
  *   get:
- *     summary: Get all products
- *     description: Retrieve a list of all products.
+ *     summary: Get all produits
+ *     description: Retrieve a list of all produits.
  *     responses:
  *       200:
- *         description: A list of products.
+ *         description: A list of produits.
  */
 router.get('/produits', getAllProduits);
 
@@ -63,15 +63,15 @@ router.get('/produits', getAllProduits);
  * @swagger
  * /api/produits/{id}:
  *   put:
- *     summary: Update a product
- *     description: Updates an existing product.
+ *     summary: Update a produit
+ *     description: Updates an existing produit.
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: Product ID
+ *         description: Produitt ID
  *     requestBody:
  *       required: true
  *       content:
