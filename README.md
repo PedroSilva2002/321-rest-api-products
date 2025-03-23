@@ -3,7 +3,7 @@
 Necessaire :
 - Docker installé sur votre machine
 
-1. Renommez le .env.example en .env tout court
+1. Renommez le .env.example en .env tout court et remplissez  les variables d'environement
 2. lancer l'app avec docker
 docker compose up --build
 
